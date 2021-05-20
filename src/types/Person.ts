@@ -6,8 +6,8 @@ export class Person {
   phone_number: string;
   note = '';
 
-  constructor(firstname: string, phoneNumber: string) {
+  constructor(firstname: string, phone_number: string) {
     this.firstname = firstname;
-    this.phone_number = phoneNumber;
+    this.phone_number = phone_number;
   }
 }

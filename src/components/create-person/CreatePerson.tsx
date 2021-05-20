@@ -6,7 +6,11 @@ const CreatePerson = () => {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [nickname, setNickname] = useState('');
+  const [note, setNote] = useState('');
   const [inputError, setInputError] = useState('');
+
   return (
     <div className="create-person-container">
       <InputBox
@@ -31,6 +35,30 @@ const CreatePerson = () => {
         item={phoneNumber}
         setItem={setPhoneNumber}
         testId="input-phone"
+        setError={setInputError}
+      />
+      <InputBox
+        isPassword={false}
+        placeholder="email"
+        item={email}
+        setItem={setEmail}
+        testId="input-email"
+        setError={setInputError}
+      />
+      <InputBox
+        isPassword={false}
+        placeholder="nickname"
+        item={nickname}
+        setItem={setNickname}
+        testId="input-nickname"
+        setError={setInputError}
+      />
+      <InputBox
+        isPassword={false}
+        placeholder="note"
+        item={note}
+        setItem={setNote}
+        testId="input-note"
         setError={setInputError}
       />
 
