@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './create-person.scss';
-import InputBox from '../input-box/InputBox';
+import { InputBox } from 'src/components';
 
 const CreatePerson = () => {
   const [firstname, setFirstname] = useState('');

@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import './app.scss';
-import CreatePerson from './components/create-person/CreatePerson';
+import { CreatePerson } from './components';
 import { personContext } from './contexts/personContext';
 import { PersonBuilder } from './types/PersonBuilder';
 
