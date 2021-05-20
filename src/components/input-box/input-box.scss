@@ -11,10 +11,7 @@
   text-align: left;
 }
 .input-box {
-  //   @apply w-full h-10 pl-2 pt-2 text-xs;
-  //   border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-
   width: max-content;
   flex: 2;
   height: 1.2rem;
@@ -22,16 +19,4 @@
     background-color: aliceblue;
     outline: 1px solid rgb(78, 209, 218);
   }
-}
-
-.trans-effect {
-  transition: all 100ms ease-out;
-  transform-origin: 0% -50%;
-  transform: scale(0.8);
-}
-
-.trans-effect-none {
-  transition: all 100ms linear;
-  transform-origin: 0% -50%;
-  transform: scale(1);
 }
