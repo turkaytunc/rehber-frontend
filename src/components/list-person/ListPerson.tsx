@@ -14,6 +14,14 @@ const ListPerson = () => {
         const response = await fetchPeople();
         const data = await response.json();
 
+        if (data.message) {
+          console.error(data.message);
+          return;
+        }
+        if (!data.people) {
+          setPeople([]);
+          return;
+        }
         setPeople(data.people);
       } catch (error) {
         console.error(error.message);
@@ -27,12 +35,19 @@ const ListPerson = () => {
     <div className="people-container">
       {people.map((person) => (
         <ul className="people-list" key={person.person_id}>
-          <li className="people-list-item">{person.firstname}</li>
-          <li className="people-list-item">{person.lastname}</li>
+          <li className="people-list-item">
+            {person.firstname} {person.lastname}
+          </li>
           <li className="people-list-item">{person.phone_number}</li>
-          <li className="people-list-item">{person.nickname}</li>
-          <li className="people-list-item">{person.email}</li>
-          <li className="people-list-item">{person.note}</li>
+          <li className="people-list-item">
+            <span className="list-item-span">Nickname</span> {person.nickname}
+          </li>
+          <li className="people-list-item">
+            <span className="list-item-span">Email</span> {person.email}
+          </li>
+          <li className="people-list-item">
+            <span className="list-item-span">Notes</span> {person.note}
+          </li>
         </ul>
       ))}
     </div>
