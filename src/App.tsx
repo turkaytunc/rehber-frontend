@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './app.scss';
-import { CreatePerson } from './components';
+import { CreatePerson, ListPerson } from './components';
 
 function App() {
   const [isShowCreate, setIsShowCreate] = useState(false);
@@ -13,6 +13,9 @@ function App() {
         </button>
       </div>
       {isShowCreate && <CreatePerson />}
+      <div>
+        <ListPerson />
+      </div>
     </div>
   );
 }
