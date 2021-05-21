@@ -36,9 +36,11 @@ const ListPerson = () => {
       {people.map((person) => (
         <ul className="people-list" key={person.person_id}>
           <li className="people-list-item">
-            {person.firstname} {person.lastname}
+            <span className="list-item-span">Name</span> {person.firstname} {person.lastname}
           </li>
-          <li className="people-list-item">{person.phone_number}</li>
+          <li className="people-list-item">
+            <span className="list-item-span">Phone</span> {person.phone_number}
+          </li>
           <li className="people-list-item">
             <span className="list-item-span">Nickname</span> {person.nickname}
           </li>

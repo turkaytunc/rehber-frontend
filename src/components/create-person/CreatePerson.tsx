@@ -14,7 +14,6 @@ const CreatePerson = () => {
   const [nickname, setNickname] = useState('');
   const [note, setNote] = useState('');
   const [inputError, setInputError] = useState('');
-  const [fetchError, setFetchError] = useState('');
 
   const personGlobalContext = useContext(personContext);
   const currPerson = useContext(currentPersonContext);
@@ -34,14 +33,14 @@ const CreatePerson = () => {
       const data = await response.json();
 
       if (data.message) {
-        setFetchError(data.message);
+        setInputError(data.message);
         return;
       }
 
       currPerson?.setCurrentPerson(data.person.person_id);
       personGlobalContext?.setPerson(data.person);
     } catch (error) {
-      setFetchError(error.message);
+      setInputError(error.message);
     }
   };
 
@@ -104,7 +103,6 @@ const CreatePerson = () => {
         Add Person
       </button>
       {inputError}
-      {fetchError}
     </form>
   );
 };
