@@ -1,4 +1,5 @@
 export class Person {
+  person_id = '';
   firstname: string;
   lastname = '';
   nickname = '';

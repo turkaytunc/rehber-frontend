@@ -6,6 +6,11 @@ export class PersonBuilder {
     this.person = new Person(firstname, phone_number);
   }
 
+  setPersonId(personId: string): PersonBuilder {
+    this.person.person_id = personId;
+    return this;
+  }
+
   setFirstname(firstname: string): PersonBuilder {
     this.person.firstname = firstname;
     return this;
