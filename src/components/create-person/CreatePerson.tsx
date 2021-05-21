@@ -61,7 +61,9 @@ const CreatePerson = () => {
         testId="input-note"
         setError={setInputError}
       />
-
+      <button className="add-person-button" data-testid="add-person-button" type="button">
+        Add Person
+      </button>
       {inputError}
     </div>
   );

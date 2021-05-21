@@ -7,6 +7,24 @@
   padding: 0.2rem;
 }
 
+.add-person-button {
+  width: 50%;
+  margin-top: 0.5rem;
+  border: 1px solid rgb(136, 145, 146);
+  border-radius: 0.2rem;
+  margin-left: 50%;
+  color: rgb(1, 184, 197);
+  font-size: 1.1rem;
+  padding: 0.2rem 0;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+    background-color: rgb(1, 184, 197);
+  }
+}
+
 @media screen and (min-width: 768px) {
   .create-person-container {
     width: 70%;
@@ -23,5 +41,10 @@
   .create-person-container {
     width: 30%;
     margin-left: 35%;
+  }
+
+  .add-person-button {
+    width: 30%;
+    margin-left: 70%;
   }
 }

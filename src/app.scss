@@ -1,3 +1,50 @@
 .app-container {
   text-align: center;
 }
+
+.create-person-button {
+  width: 50%;
+  margin-top: 0.5rem;
+  border: 1px solid rgb(136, 145, 146);
+  border-radius: 0.2rem;
+  color: rgb(1, 184, 197);
+  font-size: 1.1rem;
+  margin-left: calc(50% - 0.2rem);
+  padding: 0.2rem 0;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    color: white;
+    background-color: rgb(1, 184, 197);
+  }
+}
+
+.create-button-container {
+  width: 100%;
+  display: flex;
+}
+
+@media screen and (min-width: 768px) {
+  .create-button-container {
+    width: 70%;
+    margin-left: 15%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .create-button-container {
+    width: 50%;
+    margin-left: 25%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .create-button-container {
+    width: 30%;
+    margin-left: 35%;
+  }
+
+  .create-person-button {
+    width: 30%;
+    margin-left: 70%;
+  }
+}
