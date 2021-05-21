@@ -1,0 +1,39 @@
+.people-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  list-style: none;
+  margin: 0.2rem;
+  background-color: aliceblue;
+  border: 1px solid #ddd;
+
+  .delete-button {
+    display: none;
+  }
+
+  &:hover {
+    .delete-button {
+      width: 10%;
+      margin-left: 90%;
+      background-color: transparent;
+      font-size: 1rem;
+      border: none;
+      display: block;
+    }
+  }
+}
+
+.list-item-span {
+  display: inline-block;
+  min-width: 6rem;
+}
+
+.people-list-item {
+  padding-left: 0.2rem;
+  padding-top: 0.3rem;
+  width: 100%;
+  text-align: left;
+}

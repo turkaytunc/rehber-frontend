@@ -3,6 +3,7 @@ import { fetchPeople } from 'src/api';
 import { personContext } from 'src/contexts/personContext';
 import { Person } from 'src/types/Person';
 import './list-person.scss';
+import SinglePerson from './single-person/SinglePerson';
 
 const ListPerson = () => {
   const [people, setPeople] = useState([] as Person[]);
@@ -34,23 +35,7 @@ const ListPerson = () => {
   return (
     <div className="people-container">
       {people.map((person) => (
-        <ul className="people-list" key={person.person_id}>
-          <li className="people-list-item">
-            <span className="list-item-span">Name</span> {person.firstname} {person.lastname}
-          </li>
-          <li className="people-list-item">
-            <span className="list-item-span">Phone</span> {person.phone_number}
-          </li>
-          <li className="people-list-item">
-            <span className="list-item-span">Nickname</span> {person.nickname}
-          </li>
-          <li className="people-list-item">
-            <span className="list-item-span">Email</span> {person.email}
-          </li>
-          <li className="people-list-item">
-            <span className="list-item-span">Notes</span> {person.note}
-          </li>
-        </ul>
+        <SinglePerson person={person} />
       ))}
     </div>
   );
