@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import './create-person.scss';
 import { InputBox } from 'src/components';
+import { PersonBuilder } from 'src/types/PersonBuilder';
+import { createPerson } from 'src/api';
+import { personContext } from 'src/contexts/personContext';
+import { currentPersonContext } from 'src/contexts/currentPerson';
 
 const CreatePerson = () => {
   const [firstname, setFirstname] = useState('');
@@ -10,9 +14,39 @@ const CreatePerson = () => {
   const [nickname, setNickname] = useState('');
   const [note, setNote] = useState('');
   const [inputError, setInputError] = useState('');
+  const [fetchError, setFetchError] = useState('');
+
+  const personGlobalContext = useContext(personContext);
+  const currPerson = useContext(currentPersonContext);
+
+  const handleSubmit = async (event: FormEvent) => {
+    try {
+      event.preventDefault();
+
+      const person = new PersonBuilder(firstname, phoneNumber)
+        .setEmail(email)
+        .setLastname(lastname)
+        .setNickname(nickname)
+        .setNote(note)
+        .build();
+
+      const response = await createPerson(person);
+      const data = await response.json();
+
+      if (data.message) {
+        setFetchError(data.message);
+        return;
+      }
+
+      currPerson?.setCurrentPerson(data.person.person_id);
+      personGlobalContext?.setPerson(data.person);
+    } catch (error) {
+      setFetchError(error.message);
+    }
+  };
 
   return (
-    <div className="create-person-container">
+    <form className="create-person-container">
       <InputBox
         isPassword={false}
         placeholder="firstname"
@@ -61,11 +95,17 @@ const CreatePerson = () => {
         testId="input-note"
         setError={setInputError}
       />
-      <button className="add-person-button" data-testid="add-person-button" type="button">
+      <button
+        onClick={(event) => handleSubmit(event)}
+        className="add-person-button"
+        data-testid="add-person-button"
+        type="submit"
+      >
         Add Person
       </button>
       {inputError}
-    </div>
+      {fetchError}
+    </form>
   );
 };
 
