@@ -6,7 +6,7 @@ const SinglePerson = ({ person }: { person: Person }) => {
   const handleDelete = async (personId: string) => {
     try {
       const response = await deletePerson(personId);
-      const data = response.json();
+      const data = await response.json();
       console.log(data);
     } catch (error) {
       console.log(error.message);
