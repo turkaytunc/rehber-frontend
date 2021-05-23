@@ -20,8 +20,31 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/src/**/*.(ts|tsx)",
+      "!**/interfaces/**",
+      "!**/index.ts",
+      "!**/react-app-env.d.ts",
+      "!**/index.tsx"
+    ],
+    "coverageReporters": [
+      "json",
+      "text",
+      "html",
+      "lcov"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 85,
+        "functions": 85,
+        "lines": 85,
+        "statements": 85
+      }
+    }
   },
   "eslintConfig": {
     "extends": [

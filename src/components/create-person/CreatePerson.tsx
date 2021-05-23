@@ -4,7 +4,6 @@ import { InputBox } from 'src/components';
 import { PersonBuilder } from 'src/types/PersonBuilder';
 import { createPerson } from 'src/api';
 import { personContext } from 'src/contexts/personContext';
-import { currentPersonContext } from 'src/contexts/currentPerson';
 
 const CreatePerson = () => {
   const [firstname, setFirstname] = useState('');
@@ -16,7 +15,6 @@ const CreatePerson = () => {
   const [inputError, setInputError] = useState('');
 
   const personGlobalContext = useContext(personContext);
-  const currPerson = useContext(currentPersonContext);
 
   const handleSubmit = async (event: FormEvent) => {
     try {
@@ -37,7 +35,6 @@ const CreatePerson = () => {
         return;
       }
 
-      currPerson?.setCurrentPerson(data.person.person_id);
       personGlobalContext?.setPerson(data.person);
     } catch (error) {
       setInputError(error.message);
