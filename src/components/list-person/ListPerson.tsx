@@ -7,6 +7,7 @@ import SinglePerson from './single-person/SinglePerson';
 
 const ListPerson = () => {
   const [people, setPeople] = useState([] as Person[]);
+  const [err, setErr] = useState('');
   const personCon = useContext(personContext);
 
   useEffect(() => {
@@ -16,16 +17,13 @@ const ListPerson = () => {
         const data = await response.json();
 
         if (data.message) {
-          console.error(data.message);
+          setErr(data.message);
           return;
         }
-        if (!data.people) {
-          setPeople([]);
-          return;
-        }
+
         setPeople(data.people);
       } catch (error) {
-        console.error(error.message);
+        setErr(error.message);
       }
     };
 
@@ -35,8 +33,9 @@ const ListPerson = () => {
   return (
     <div className="people-container">
       {people.map((person) => (
-        <SinglePerson person={person} />
+        <SinglePerson key={person.person_id} person={person} />
       ))}
+      {err}
     </div>
   );
 };

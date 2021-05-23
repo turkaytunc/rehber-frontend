@@ -17,7 +17,7 @@ const SinglePerson = ({ person }: { person: Person }) => {
     }
   };
   return (
-    <ul className="people-list" key={person.person_id}>
+    <ul className="people-list">
       <button onClick={() => handleDelete(person.person_id)} type="button" className="delete-button">
         &times;
       </button>

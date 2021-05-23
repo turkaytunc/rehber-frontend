@@ -3,10 +3,10 @@ import { PersonBuilder } from 'src/types/PersonBuilder';
 
 describe('PersonBuilder', () => {
   it('should return new person type with given inputs', () => {
-    const person = new PersonBuilder('ad', 'soyad')
+    const person = new PersonBuilder('name', 'surname')
       .setEmail('email@email.com')
-      .setFirstname('ad degistir')
-      .setLastname('soyad')
+      .setFirstname('new name')
+      .setLastname('lastname')
       .setNickname('nick')
       .setPersonId('2436-jl243-243jk4h')
       .setPhoneNumber('4234234234')
